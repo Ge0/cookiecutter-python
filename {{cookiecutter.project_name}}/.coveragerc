@@ -1,0 +1,14 @@
+[run]
+branch = True
+source = {{ cookiecutter.project_package }}
+
+[paths]
+source =
+    src/{{ cookiecutter.project_package }}
+    .tox/*/lib/python*/site-packages/{{ cookiecutter.project_package }}
+
+[report]
+;fail_under = 100
+show_missing = True
+exclude_lines =
+    if __name__ == .__main__.:
