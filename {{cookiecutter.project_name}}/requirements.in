@@ -1,4 +1,6 @@
+{% if cookiecutter.project_cli == 'click' -%}
 click
+{% endif -%}
 coverage
 pytest
 sphinx

@@ -15,10 +15,14 @@ CLASSIFIERS = [
     'Programming Language :: Python :: Implementation :: CPython',
     'Programming Language :: Python',
     'Topic :: Software Development',
+{%- if cookiecutter.project_cli != 'none' %}
     'Topic :: Utilities',
+{%- endif %}
 ]
 INSTALL_REQUIRES = [
+{%- if cookiecutter.project_cli == 'click' %}
     'click',
+{% endif -%}
 ]
 TESTS_REQUIRE = [
     'pytest',
@@ -60,11 +64,13 @@ setup(
     url=META['uri'],
     package_dir={'': 'src'},
     packages=find_packages('src'),
+{%- if cookiecutter.project_cli != 'none' %}
     entry_points={
         'console_scripts': [
             '{{ cookiecutter.project_prog }}={{ cookiecutter.project_package }}.__main__:main',
         ],
     },
+{%- endif %}
     install_requires=INSTALL_REQUIRES,
     tests_require=TESTS_REQUIRE,
 )

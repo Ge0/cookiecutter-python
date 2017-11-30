@@ -1,4 +1,17 @@
+import os
+from os.path import join
 from subprocess import DEVNULL, check_call
+
+
+SOURCE_DIR = join('src', '{{ cookiecutter.project_package }}')
+TEST_DIR = 'tests'
+
+
+def remove_main():
+    if '{{ cookiecutter.project_cli }}' != 'none':
+        return
+    os.remove(join(SOURCE_DIR, '__main__.py'))
+    os.remove(join(TEST_DIR, 'test_main.py'))
 
 
 def pip_compile():
@@ -9,4 +22,5 @@ def pip_compile():
 
 
 if __name__ == '__main__':
+    remove_main()
     pip_compile()
