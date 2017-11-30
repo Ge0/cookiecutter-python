@@ -117,7 +117,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = '{{ cookiecutter.project_name}}'
+htmlhelp_basename = {{ cookiecutter.project_package }}.__name__
 
 
 # -- Options for LaTeX output ---------------------------------------------
