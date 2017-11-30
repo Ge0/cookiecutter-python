@@ -14,6 +14,12 @@ def remove_main():
     os.remove(join(TEST_DIR, 'test_main.py'))
 
 
+def remove_license():
+    if '{{ cookiecutter.project_license }}' != 'none':
+        return
+    os.remove('LICENSE.txt')
+
+
 def pip_compile():
     check_call([
         'pip-compile', '--no-header', '--no-annotate',
@@ -23,4 +29,5 @@ def pip_compile():
 
 if __name__ == '__main__':
     remove_main()
+    remove_license()
     pip_compile()

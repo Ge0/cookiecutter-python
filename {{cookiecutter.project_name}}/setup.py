@@ -60,7 +60,9 @@ setup(
     long_description=LONG_DESCRIPTION,
     author=META['author'],
     author_email=META['email'],
+{%- if cookiecutter.project_license != 'none' %}
     license=META['license'],
+{%- endif %}
     url=META['uri'],
     package_dir={'': 'src'},
     packages=find_packages('src'),
