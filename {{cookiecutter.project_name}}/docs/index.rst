@@ -7,6 +7,13 @@ Welcome to {{ cookiecutter.project_title }}
 
    changelog
 
+{% if cookiecutter.project_cli != 'none' -%}
+CLI reference
+=============
+
+.. command-output:: {{ cookiecutter.project_prog }} --help
+
+{% endif -%}
 Indices and tables
 ==================
 

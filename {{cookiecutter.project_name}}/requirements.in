@@ -5,4 +5,7 @@ coverage
 pytest
 {% if cookiecutter.project_doc == 'sphinx' -%}
 sphinx
+{% if cookiecutter.project_cli != 'none' -%}
+sphinxcontrib-programoutput
+{% endif -%}
 {% endif -%}

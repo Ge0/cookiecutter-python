@@ -36,6 +36,9 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.intersphinx',
     'sphinx.ext.viewcode',
+{%- if cookiecutter.project_cli != 'none' %}
+    'sphinxcontrib.programoutput',
+{%- endif %}
 ]
 
 # Add any paths that contain templates here, relative to this directory.
