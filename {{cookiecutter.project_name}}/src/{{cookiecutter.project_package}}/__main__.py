@@ -1,6 +1,8 @@
 """Entry point."""
 
 {% if cookiecutter.project_cli == 'argparse' -%}
+from __future__ import print_function
+
 import argparse
 {%- elif cookiecutter.project_cli == 'click' -%}
 import click
