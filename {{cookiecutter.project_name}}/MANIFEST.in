@@ -1,5 +1,7 @@
 include .*.cfg *.in *.ini .*rc *.rst *.txt
+{% if cookiecutter.project_doc == 'sphinx' -%}
 include docs/conf.py docs/make.bat docs/Makefile
 recursive-include docs *.rst
-recursive-include tests *.py
 prune docs/_build
+{% endif -%}
+recursive-include tests *.py

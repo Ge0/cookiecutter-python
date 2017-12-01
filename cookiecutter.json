@@ -10,5 +10,6 @@
   "project_name": "{{ cookiecutter.project_title.lower().replace(' ', '-').replace('_', '-') }}",
   "project_prog": "{{ cookiecutter.project_name }}",
   "project_package": "{{ cookiecutter.project_name.replace('-', '_') }}",
-  "project_cli": ["click", "argparse", "none"]
+  "project_cli": ["click", "argparse", "none"],
+  "project_doc": ["sphinx", "none"]
 }

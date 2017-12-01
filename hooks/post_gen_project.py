@@ -1,4 +1,5 @@
 import os
+import shutil
 from os.path import join
 from subprocess import DEVNULL, check_call
 
@@ -20,6 +21,12 @@ def remove_license():
     os.remove('LICENSE.txt')
 
 
+def remove_doc():
+    if '{{ cookiecutter.project_doc }}' != 'none':
+        return
+    shutil.rmtree('docs')
+
+
 def pip_compile():
     check_call([
         'pip-compile', '--no-header', '--no-annotate',
@@ -30,4 +37,5 @@ def pip_compile():
 if __name__ == '__main__':
     remove_main()
     remove_license()
+    remove_doc()
     pip_compile()

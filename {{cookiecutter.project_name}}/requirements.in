@@ -3,4 +3,6 @@ click
 {% endif -%}
 coverage
 pytest
+{% if cookiecutter.project_doc == 'sphinx' -%}
 sphinx
+{% endif -%}
