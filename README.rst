@@ -8,7 +8,8 @@ This is inspired from
 First, install dependencies.
 
 .. code-block:: text
-    $ pip install -r requirements.txt
+
+   $ pip install -r requirements.txt
 
 To create a new project, run
 
