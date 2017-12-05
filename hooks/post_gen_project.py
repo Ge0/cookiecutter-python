@@ -27,6 +27,13 @@ def remove_doc():
     shutil.rmtree('docs')
 
 
+def setup_vcs():
+    if '{{ cookiecutter.vcs }}' == 'git':
+        check_call(['git', 'init'])
+    else:
+        os.remove('.gitignore')
+
+
 def pip_compile():
     check_call([
         'pip-compile', '--no-header', '--no-annotate',
@@ -38,4 +45,5 @@ if __name__ == '__main__':
     remove_main()
     remove_license()
     remove_doc()
+    setup_vcs()
     pip_compile()
