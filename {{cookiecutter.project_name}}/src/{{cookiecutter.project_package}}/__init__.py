@@ -10,8 +10,8 @@ __uri__ = '{{ cookiecutter.project_url }}'
 __author__ = '{{ cookiecutter.author_name }}'
 __email__ = '{{ cookiecutter.author_email }}'
 
-{% if cookiecutter.project_license != 'none' -%}
-__license__ = '{{ cookiecutter.project_license }}'
+{% if cookiecutter.project_license == 'lgpl' -%}
+__license__ = 'LGPL'
 {% endif -%}
 __copyright__ = '{{ cookiecutter.project_copyright }}'
 

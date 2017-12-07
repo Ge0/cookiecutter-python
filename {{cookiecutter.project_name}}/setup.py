@@ -7,7 +7,9 @@ from setuptools import find_packages, setup
 
 CLASSIFIERS = [
     'Intended Audience :: Developers',
+{%- if cookiecutter.project_license == 'lgpl' %}
     'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
+{%- endif %}
     'Programming Language :: Python :: 3',
     'Programming Language :: Python :: 3.4',
     'Programming Language :: Python :: 3.5',
