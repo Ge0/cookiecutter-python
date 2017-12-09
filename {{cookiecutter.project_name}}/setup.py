@@ -9,6 +9,10 @@ CLASSIFIERS = [
     'Intended Audience :: Developers',
 {%- if cookiecutter.project_license == 'lgpl' %}
     'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
+{%- elif cookiecutter.project_license == 'mit' %}
+    'License :: OSI Approved :: MIT License',
+{%- elif cookiecutter.project_license == 'bsd' %}
+    'License :: OSI Approved :: BSD License',
 {%- endif %}
     'Programming Language :: Python :: 3',
     'Programming Language :: Python :: 3.4',

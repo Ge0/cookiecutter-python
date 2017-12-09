@@ -12,6 +12,10 @@ __email__ = '{{ cookiecutter.author_email }}'
 
 {% if cookiecutter.project_license == 'lgpl' -%}
 __license__ = 'LGPL'
+{% elif cookiecutter.project_license == 'mit' -%}
+__license__ = 'MIT'
+{% elif cookiecutter.project_license == 'bsd' -%}
+__license__ = 'BSD'
 {% endif -%}
 __copyright__ = '{{ cookiecutter.project_copyright }}'
 

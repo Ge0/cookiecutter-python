@@ -5,7 +5,7 @@
   "project_url": "https://github.com/johndoe/foobar",
   "author_name": "John Doe",
   "author_email": "johndoe@example.com",
-  "project_license": ["lgpl", "none"],
+  "project_license": ["lgpl", "mit", "bsd", "none"],
   "project_copyright": "{% now 'local', '%Y' %}, {{ cookiecutter.author_name }}",
   "project_name": "{{ cookiecutter.project_title.lower().replace(' ', '-').replace('_', '-') }}",
   "project_prog": "{{ cookiecutter.project_name }}",
