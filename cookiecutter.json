@@ -6,7 +6,7 @@
   "author_name": "John Doe",
   "author_email": "johndoe@example.com",
   "project_license": ["lgpl", "none"],
-  "project_copyright": "2017, {{ cookiecutter.author_name }}",
+  "project_copyright": "{% now 'local', '%Y' %}, {{ cookiecutter.author_name }}",
   "project_name": "{{ cookiecutter.project_title.lower().replace(' ', '-').replace('_', '-') }}",
   "project_prog": "{{ cookiecutter.project_name }}",
   "project_package": "{{ cookiecutter.project_name.replace('-', '_') }}",
