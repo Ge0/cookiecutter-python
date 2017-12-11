@@ -12,5 +12,6 @@
   "project_package": "{{ cookiecutter.project_name.replace('-', '_') }}",
   "project_cli": ["click", "argparse", "none"],
   "project_doc": ["sphinx", "none"],
-  "vcs": ["git", "none"]
+  "vcs": ["git", "none"],
+  "gitlab_ci": ["yes", "no"]
 }

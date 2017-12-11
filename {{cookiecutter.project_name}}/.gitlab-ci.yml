@@ -1,0 +1,54 @@
+stages:
+- test
+- coverage
+
+image: python:3.6
+before_script:
+- pip install tox
+
+flake8:
+  script: tox -e flake8
+
+isort:
+  script: tox -e isort
+
+pydocstyle:
+  script: tox -e pydocstyle
+
+python2.7:
+  image: python:2.7
+  script: tox -e py27
+  artifacts:
+    paths:
+    - .coverage.*
+    expire_in: 1 hour
+
+python3.4:
+  image: python:3.4
+  script: tox -e py34
+
+python3.5:
+  image: python:3.5
+  script: tox -e py35
+
+python3.6:
+  image: python:3.6
+  script: tox -e py36
+  artifacts:
+    paths:
+    - .coverage.*
+    expire_in: 1 hour
+
+docs:
+  script: tox -e docs
+
+packaging:
+  script: tox -e packaging
+
+coverage:
+  stage: coverage
+  script: tox -e coverage-report
+  dependencies:
+  - python2.7
+  - python3.6
+  coverage: '/^TOTAL.*\s+(\d+\%)$/'

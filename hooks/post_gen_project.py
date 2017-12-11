@@ -34,6 +34,11 @@ def setup_vcs():
         os.remove('.gitignore')
 
 
+def setup_ci():
+    if '{{ cookiecutter.gitlab_ci }}' == 'no':
+        os.remove('.gitlab-ci.yml')
+
+
 def pip_compile():
     check_call([
         'pip-compile', '--no-header', '--no-annotate',
@@ -46,4 +51,5 @@ if __name__ == '__main__':
     remove_license()
     remove_doc()
     setup_vcs()
+    setup_ci()
     pip_compile()
