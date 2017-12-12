@@ -22,4 +22,4 @@ __copyright__ = '{{ cookiecutter.project_copyright }}'
 
 def hello():
     """Return a welcome message."""
-    return 'Hello world!'
+    return "Hello world!"
