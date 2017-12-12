@@ -3,6 +3,7 @@ stages:
 - coverage
 
 image: python:3.6
+
 before_script:
 - pip install tox
 
@@ -39,15 +40,23 @@ python3.6:
     - .coverage.*
     expire_in: 1 hour
 
-docs:
-  script: tox -e docs
+manifest:
+  script: tox -e manifest
 
-packaging:
-  script: tox -e packaging
+metadata:
+  script: tox -e metadata
+
+doc8:
+  script: tox -e doc8
+{%- if cookiecutter.project_doc == 'sphinx' %}
+
+sphinx:
+  script: tox -e sphinx
+{%- endif %}
 
 coverage:
   stage: coverage
-  script: tox -e coverage-report
+  script: tox -e coverage
   dependencies:
   - python2.7
   - python3.6
