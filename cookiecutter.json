@@ -13,5 +13,6 @@
   "project_cli": ["click", "argparse", "none"],
   "project_doc": ["sphinx", "none"],
   "vcs": ["git", "none"],
-  "gitlab_ci": ["yes", "no"]
+  "gitlab_ci": ["yes", "no"],
+  "travis_ci": ["yes", "no"]
 }

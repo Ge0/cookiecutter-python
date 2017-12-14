@@ -1,0 +1,34 @@
+language: python
+python: "3.6"
+
+install:
+- pip install codecov tox
+
+script:
+- tox
+
+matrix:
+  include:
+  - env: TOXENV=flake8
+  - env: TOXENV=isort
+  - env: TOXENV=pydocstyle
+  - python: "2.7"
+    env: TOXENV=py27-cov
+    after_success:
+    - coverage combine
+    - codecov
+  - python: "3.4"
+    env: TOXENV=py34
+  - python: "3.5"
+    env: TOXENV=py35
+  - python: "3.6"
+    env: TOXENV=py36-cov
+    after_success:
+    - coverage combine
+    - codecov
+  - env: TOXENV=manifest
+  - env: TOXENV=metadata
+  - env: TOXENV=doc8
+{%- if cookiecutter.project_doc == 'sphinx' %}
+  - env: TOXENV=sphinx
+{%- endif %}
