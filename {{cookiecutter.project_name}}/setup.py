@@ -1,6 +1,4 @@
-import ast
-import re
-from os.path import join
+from os.path import dirname, join
 
 from setuptools import find_packages, setup
 
@@ -37,41 +35,37 @@ TESTS_REQUIRE = [
 ]
 
 
-def get_description():
-    with open('README.rst') as fileobj:
+PROJECT_DIR = dirname(__file__)
+README_FILE = join(PROJECT_DIR, 'README.rst')
+ABOUT_FILE = join(PROJECT_DIR, 'src', '{{ cookiecutter.project_package }}', '__about__.py')
+
+
+def get_readme():
+    with open(README_FILE) as fileobj:
         return fileobj.read()
 
 
-def get_meta():
-    meta_re = re.compile(r'^__(?P<name>\w+?)__\s*=\s*(?P<value>.+)$')
-    meta_filepath = join('src', '{{ cookiecutter.project_package }}', '__init__.py')
-    meta = {}
-    with open(meta_filepath) as meta_fileobj:
-        for line in meta_fileobj:
-            match = meta_re.match(line)
-            if not match:
-                continue
-            meta_name = match.group('name')
-            meta_value = ast.literal_eval(match.group('value'))
-            meta[meta_name] = meta_value
-    return meta
+def get_about():
+    about = {}
+    with open(ABOUT_FILE) as fileobj:
+        exec(fileobj.read(), about)
+    return about
 
 
-LONG_DESCRIPTION = get_description()
-META = get_meta()
+ABOUT = get_about()
 
 
 setup(
-    name=META['name'],
-    version=META['version'],
-    description=META['description'],
-    long_description=LONG_DESCRIPTION,
-    author=META['author'],
-    author_email=META['email'],
+    name=ABOUT['__name__'],
+    version=ABOUT['__version__'],
+    description=ABOUT['__summary__'],
+    long_description=get_readme(),
+    author=ABOUT['__author__'],
+    author_email=ABOUT['__email__'],
 {%- if cookiecutter.project_license != 'none' %}
-    license=META['license'],
+    license=ABOUT['__license__'],
 {%- endif %}
-    url=META['uri'],
+    url=ABOUT['__uri__'],
     package_dir={'': 'src'},
     packages=find_packages('src'),
 {%- if cookiecutter.project_cli != 'none' %}
