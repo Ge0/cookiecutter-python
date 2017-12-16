@@ -30,9 +30,6 @@ INSTALL_REQUIRES = [
     'click',
 {% endif -%}
 ]
-TESTS_REQUIRE = [
-    'pytest',
-]
 
 
 PROJECT_DIR = dirname(__file__)
@@ -76,6 +73,5 @@ setup(
     },
 {%- endif %}
     install_requires=INSTALL_REQUIRES,
-    tests_require=TESTS_REQUIRE,
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, <4',
 )
