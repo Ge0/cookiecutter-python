@@ -25,11 +25,13 @@ CLASSIFIERS = [
     'Topic :: Utilities',
 {%- endif %}
 ]
-INSTALL_REQUIRES = [
 {%- if cookiecutter.project_cli == 'click' %}
+INSTALL_REQUIRES = [
     'click',
-{% endif -%}
 ]
+{%- else %}
+INSTALL_REQUIRES = []
+{%- endif %}
 
 
 PROJECT_DIR = dirname(__file__)
