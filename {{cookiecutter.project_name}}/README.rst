@@ -10,4 +10,4 @@ Setup with:
 
 .. code-block:: bash
 
-    python setup.py install
+    pip install -e .
