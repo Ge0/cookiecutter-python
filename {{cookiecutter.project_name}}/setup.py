@@ -55,7 +55,7 @@ ABOUT = get_about()
 
 
 setup(
-    name=ABOUT['__name__'],
+    name=ABOUT['__title__'],
     version=ABOUT['__version__'],
     description=ABOUT['__summary__'],
     long_description=get_readme(),

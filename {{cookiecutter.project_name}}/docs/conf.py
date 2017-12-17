@@ -54,7 +54,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = {{ cookiecutter.project_package }}.__title__
+project = '{{ cookiecutter.project_title }}'
 copyright = {{ cookiecutter.project_package }}.__copyright__
 author = {{ cookiecutter.project_package }}.__author__
 
@@ -120,7 +120,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = {{ cookiecutter.project_package }}.__name__
+htmlhelp_basename = {{ cookiecutter.project_package }}.__title__
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -149,8 +149,8 @@ latex_elements = {
 latex_documents = [
     (
         master_doc,
-        '{}.tex'.format({{ cookiecutter.project_package }}.__name__),
-        '{} Documentation'.format({{ cookiecutter.project_package }}.__title__),
+        '{}.tex'.format({{ cookiecutter.project_package }}.__title__),
+        '{{ cookiecutter.project_title }} Documentation',
         author,
         'manual',
     ),
@@ -164,8 +164,8 @@ latex_documents = [
 man_pages = [
     (
         master_doc,
-        {{ cookiecutter.project_package }}.__name__,
-        '{} Documentation'.format({{ cookiecutter.project_package }}.__title__),
+        {{ cookiecutter.project_package }}.__title__,
+        '{{ cookiecutter.project_title }} Documentation',
         [author],
         1,
     ),
@@ -180,10 +180,10 @@ man_pages = [
 texinfo_documents = [
     (
         master_doc,
-        {{ cookiecutter.project_package }}.__name__,
-        '{} Documentation'.format({{ cookiecutter.project_package }}.__title__),
+        {{ cookiecutter.project_package }}.__title__,
+        '{{ cookiecutter.project_title }} Documentation',
         author,
-        {{ cookiecutter.project_package }}.__name__,
+        {{ cookiecutter.project_package }}.__title__,
         {{ cookiecutter.project_package }}.__summary__,
         'Miscellaneous',
     ),

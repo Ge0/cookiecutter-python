@@ -2,8 +2,7 @@
 
 __version__ = '{{ cookiecutter.project_version }}'
 
-__title__ = '{{ cookiecutter.project_title }}'
-__name__ = '{{ cookiecutter.project_name }}'
+__title__ = '{{ cookiecutter.project_name }}'
 __summary__ = '{{ cookiecutter.project_description }}'
 __uri__ = '{{ cookiecutter.project_url }}'
 
