@@ -63,6 +63,7 @@ setup(
     license=ABOUT['__license__'],
 {%- endif %}
     url=ABOUT['__uri__'],
+    classifiers=CLASSIFIERS,
     package_dir={'': 'src'},
     packages=find_packages('src'),
 {%- if cookiecutter.project_cli != 'none' %}
