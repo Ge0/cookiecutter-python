@@ -41,17 +41,9 @@ def setup_ci():
         os.remove('.travis-ci.yml')
 
 
-def pip_compile():
-    check_call([
-        'pip-compile', '--no-header', '--no-annotate',
-        '--output-file', 'requirements.txt', 'requirements.in',
-    ], stdout=DEVNULL)
-
-
 if __name__ == '__main__':
     remove_main()
     remove_license()
     remove_doc()
     setup_vcs()
     setup_ci()
-    pip_compile()
