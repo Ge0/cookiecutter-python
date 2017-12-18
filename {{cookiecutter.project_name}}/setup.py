@@ -3,6 +3,7 @@ from os.path import dirname, join
 from setuptools import find_packages, setup
 
 
+KEYWORDS = []
 CLASSIFIERS = [
     'Intended Audience :: Developers',
 {%- if cookiecutter.project_license == 'lgpl' %}
@@ -65,6 +66,7 @@ setup(
     license=ABOUT['__license__'],
 {%- endif %}
     url=ABOUT['__uri__'],
+    keywords=KEYWORDS,
     classifiers=CLASSIFIERS,
     package_dir={'': 'src'},
     packages=find_packages('src'),
