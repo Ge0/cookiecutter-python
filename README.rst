@@ -5,14 +5,13 @@ This is inspired from
 * https://github.com/audreyr/cookiecutter-pypackage/.
 * https://hynek.me/articles/testing-packaging/.
 
-First, install dependencies.
+Quickstart
+==========
 
-.. code-block:: text
+Install the latest Cookiecutter if you haven't installed it yet::
 
-   $ pip install -r requirements.txt
+   $ pip install -U cookiecutter
 
-To create a new project, run
-
-.. code-block:: text
+To generate a new Python project::
 
     $ cookiecutter . -o ~/repos/
