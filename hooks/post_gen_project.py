@@ -1,7 +1,7 @@
 import os
 import shutil
 from os.path import join
-from subprocess import DEVNULL, check_call
+from subprocess import check_call
 
 
 SOURCE_DIR = join('src', '{{ cookiecutter.project_package }}')
