@@ -38,7 +38,7 @@ def setup_ci():
     if '{{ cookiecutter.gitlab_ci }}' == 'no':
         os.remove('.gitlab-ci.yml')
     if '{{ cookiecutter.travis_ci }}' == 'no':
-        os.remove('.travis-ci.yml')
+        os.remove('.travis.yml')
 
 
 if __name__ == '__main__':
