@@ -14,6 +14,11 @@ CLI reference
 .. command-output:: {{ cookiecutter.project_prog }} --help
 
 {% endif -%}
+API documentation
+=================
+
+.. automodule:: {{ cookiecutter.project_package }}
+
 Indices and tables
 ==================
 
