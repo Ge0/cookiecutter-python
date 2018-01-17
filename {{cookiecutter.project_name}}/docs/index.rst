@@ -14,8 +14,8 @@ CLI reference
 .. command-output:: {{ cookiecutter.project_prog }} --help
 
 {% endif -%}
-API documentation
-=================
+API reference
+=============
 
 .. automodule:: {{ cookiecutter.project_package }}
 
