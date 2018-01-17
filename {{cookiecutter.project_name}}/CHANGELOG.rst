@@ -3,10 +3,16 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
-This project adheres to `Semantic Versioning
-<https://semver.org/spec/v2.0.0.html>`_.
+The format is based on `Keep a Changelog`_ and this project adheres to
+`Semantic Versioning`_.
 
-{{ cookiecutter.project_version }} (unreleased)
-------------------
+.. _Keep a Changelog: http://keepachangelog.com/
+.. _Semantic Versioning: https://semver.org/
+
+Unreleased
+----------
+
+Added
+^^^^^
 
 * Initial release.
