@@ -13,16 +13,22 @@ matrix:
   - env: TOXENV=isort
   - env: TOXENV=pydocstyle
   - python: "2.7"
-    env: TOXENV=py27-cov
+    env: TOXENV=py27
     after_success:
     - coverage combine
     - codecov
   - python: "3.4"
     env: TOXENV=py34
+    after_success:
+    - coverage combine
+    - codecov
   - python: "3.5"
     env: TOXENV=py35
+    after_success:
+    - coverage combine
+    - codecov
   - python: "3.6"
-    env: TOXENV=py36-cov
+    env: TOXENV=py36
     after_success:
     - coverage combine
     - codecov
