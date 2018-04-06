@@ -2,6 +2,7 @@
 /.cache/
 /.coverage
 /.coverage.*
+/.pytest_cache/
 /.tox/
 /build/
 /dist/
