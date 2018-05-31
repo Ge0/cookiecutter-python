@@ -12,6 +12,7 @@ matrix:
   - env: TOXENV=flake8
   - env: TOXENV=isort
   - env: TOXENV=pydocstyle
+  - env: TOXENV=black
   - python: "2.7"
     env: TOXENV=py27
     after_success:
