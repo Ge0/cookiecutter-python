@@ -1,7 +1,9 @@
-include .*.cfg *.in *.ini .*rc *.rst *.txt *.yml
+include .flake8 .pydocstyle
+include *.cfg *.in *.ini .*rc *.rst *.txt *.yml
 {% if cookiecutter.project_doc == 'sphinx' -%}
 include docs/conf.py docs/make.bat docs/Makefile
 recursive-include docs *.rst
 prune docs/_build
+prune docs/_static
 {% endif -%}
 recursive-include tests *.py
