@@ -33,6 +33,11 @@ matrix:
     after_success:
     - coverage combine
     - codecov
+  - python: "3.7"
+    env: TOXENV=py37
+    after_success:
+    - coverage combine
+    - codecov
   - env: TOXENV=manifest
   - env: TOXENV=metadata
   - env: TOXENV=doc8
