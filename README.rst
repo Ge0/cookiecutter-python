@@ -15,13 +15,13 @@ Install the latest Cookiecutter if you haven't installed it yet:
 
 .. code-block:: bash
 
-   $ pip install -U cookiecutter
+   pip install -U cookiecutter
 
 To generate a new Python project:
 
 .. code-block:: bash
 
-    $ cookiecutter . -o ~/repos/
+    cookiecutter . -o ~/repos/
 
 Configuration
 -------------
