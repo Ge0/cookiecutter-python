@@ -1,4 +1,8 @@
 """{{ cookiecutter.project_description}}"""
+{%- if cookiecutter.python_min_version == "2.7" %}
+
+from __future__ import print_function
+{%- endif %}
 
 from .__about__ import (
     __author__,
@@ -7,6 +11,7 @@ from .__about__ import (
 {%- if cookiecutter.project_license != "none" %}
     __license__,
 {%- endif %}
+    __slug__,
     __summary__,
     __title__,
     __uri__,
@@ -21,6 +26,7 @@ __all__ = [
 {%- if cookiecutter.project_license != "none" %}
     "__license__",
 {%- endif %}
+    "__slug__",
     "__summary__",
     "__title__",
     "__uri__",
@@ -30,5 +36,5 @@ __all__ = [
 
 
 def hello():
-    """Return a welcome message."""
-    return "Hello world!"
+    """Example function."""
+    print("Hello world!")

@@ -1,0 +1,11 @@
+include *.cfg *.in *.ini .*rc *.rst *.txt {%- if cookiecutter.ci != "none" %} *.yml {%- endif %}
+include {%- if cookiecutter.linter == "flake8" %} .flake8 {%- endif %} .pydocstyle
+{%- if cookiecutter.doc_generator != "none" %}
+include docs/conf.py docs/make.bat docs/Makefile
+recursive-include docs *.rst
+graft docs/_static
+prune docs/_build
+{%- endif %}
+{%- if cookiecutter.test_suite != "none" %}
+recursive-include tests *.py
+{%- endif %}

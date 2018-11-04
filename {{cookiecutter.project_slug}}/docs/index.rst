@@ -1,23 +1,18 @@
 Welcome to {{ cookiecutter.project_title }}
 ==========={{ cookiecutter.project_title|length * '=' }}
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-   changelog
-
-{% if cookiecutter.project_cli != 'none' -%}
-CLI reference
-=============
+{{ cookiecutter.project_description }}
+{%- if cookiecutter.cli_parser != "none" %}
 
 .. command-output:: {{ cookiecutter.project_prog }} --help
+{%- endif %}
 
-{% endif -%}
-API reference
-=============
+.. toctree::
+   :maxdepth: 1
+   :caption: Contents:
 
-.. automodule:: {{ cookiecutter.project_package }}
+   api
+   changelog
 
 Indices and tables
 ==================

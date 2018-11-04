@@ -1,18 +1,62 @@
 {
-  "project_title": "Foobar",
-  "project_name": "{{ cookiecutter.project_title.lower().replace(' ', '-').replace('_', '-') }}",
-  "project_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  "project_url": "https://github.com/johndoe/foobar",
   "author_name": "John Doe",
-  "author_email": "johndoe@example.com",
-  "project_license": ["lgpl", "mit", "bsd", "none"],
-  "project_copyright": "{% now 'local', '%Y' %}, {{ cookiecutter.author_name }}",
-  "project_prog": "{{ cookiecutter.project_name }}",
-  "project_package": "{{ cookiecutter.project_name.replace('-', '_') }}",
-  "project_version": "0.1.0",
-  "project_cli": ["click", "argparse", "none"],
-  "project_doc": ["sphinx", "none"],
-  "vcs": ["git", "none"],
-  "gitlab_ci": ["yes", "no"],
-  "travis_ci": ["yes", "no"]
+  "author_email": "{{ cookiecutter.author_name.lower().replace(' ', '.') }}@example.tld",
+  "project_title": "Lorem Ipsum",
+  "project_slug": "{{ cookiecutter.project_title.lower().replace(' ', '-').replace('_', '-') }}",
+  "project_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "project_url": "https://github.com/{{ cookiecutter.author_name.lower().replace(' ', '') }}/{{ cookiecutter.project_slug }}",
+  "project_license": [
+    "mit",
+    "gpl",
+    "none"
+  ],
+  "project_copyright": "{% now 'local', '%Y' %} {{ cookiecutter.author_name }}",
+  "project_package": "{{ cookiecutter.project_slug.replace('-', '_') }}",
+  "project_prog": "{{ cookiecutter.project_slug }}",
+  "version_scheme": [
+    "semantic",
+    "calendar"
+  ],
+  "project_version": "{% if cookiecutter.version_scheme == 'semantic' %}0.1.0{% else %}{% now 'local', '%Y.%m.%d' %}{% endif %}",
+  "python_min_version": [
+    "2.7",
+    "3.4",
+    "3.5",
+    "3.6",
+    "3.7"
+  ],
+  "cli_parser": [
+    "click",
+    "argparse",
+    "none"
+  ],
+  "linter": [
+    "flake8",
+    "none"
+  ],
+  "type_checker": [
+    "mypy",
+    "none"
+  ],
+  "code_formatter": [
+    "black",
+    "none"
+  ],
+  "test_suite": [
+    "pytest",
+    "none"
+  ],
+  "doc_generator": [
+    "sphinx",
+    "none"
+  ],
+  "vcs": [
+    "git",
+    "none"
+  ],
+  "ci": [
+    "gitlab",
+    "travis",
+    "none"
+  ]
 }

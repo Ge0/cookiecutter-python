@@ -1,0 +1,20 @@
+__pycache__/
+*.egg-info/
+/.cache/
+{%- if cookiecutter.test_suite != "none" %}
+/.coverage
+/.coverage.*
+{%- endif %}
+{%- if cookiecutter.type_checker == "mypy" %}
+/.mypy_cache/
+{%- endif %}
+{%- if cookiecutter.test_suite == "pytest" %}
+/.pytest_cache/
+{%- endif %}
+/.tox/
+/build/
+/dist/
+{%- if cookiecutter.doc_generator != "none" %}
+/docs/_build/
+/docs/api/
+{%- endif %}

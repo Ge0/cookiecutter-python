@@ -6,8 +6,8 @@
 Installation
 ------------
 
-Setup with:
+Install a development environment with:
 
 .. code-block:: bash
 
-    pip install -e .
+    pip install -e .[dev]

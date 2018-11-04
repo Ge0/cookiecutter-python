@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# {{ cookiecutter.project_name }} documentation build configuration file, created by
+# {{ cookiecutter.project_slug }} documentation build configuration file, created by
 # sphinx-quickstart on {% now 'local', '%a %b %d %H:%M:%S %Y' %}.
 #
 # This file is execfile()d with the current directory set to its
@@ -36,7 +36,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.intersphinx',
     'sphinx.ext.viewcode',
-{%- if cookiecutter.project_cli != 'none' %}
+{%- if cookiecutter.cli_parser != "none" %}
     'sphinxcontrib.programoutput',
 {%- endif %}
 ]
@@ -54,7 +54,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = '{{ cookiecutter.project_title }}'
+project = {{ cookiecutter.project_package }}.__title__
 copyright = {{ cookiecutter.project_package }}.__copyright__
 author = {{ cookiecutter.project_package }}.__author__
 

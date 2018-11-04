@@ -1,0 +1,82 @@
+---
+language: python
+sudo: required
+dist: xenial
+python: "3.7"
+
+script:
+- tox
+
+stages:
+- lint
+{%- if cookiecutter.test_suite != "none" %}
+- test
+{%- endif %}
+
+_lint: &lint
+  stage: lint
+  before_install:
+  - pip install tox
+{%- if cookiecutter.test_suite != "none" %}
+
+_test: &test
+  stage: test
+  before_install:
+  - pip install codecov coverage tox
+  after_success:
+  - coverage combine
+  - codecov
+{%- endif %}
+
+matrix:
+  include:
+{%- if cookiecutter.linter == "flake8" %}
+  - <<: *lint
+    env: TOXENV=flake8
+{%- endif %}
+  - <<: *lint
+    env: TOXENV=isort
+{%- if cookiecutter.type_checker == "mypy" %}
+  - <<: *lint
+    env: TOXENV=mypy
+{%- endif %}
+{%- if cookiecutter.code_formatter == "black" %}
+  - <<: *lint
+    env: TOXENV=black
+{%- endif %}
+  - <<: *lint
+    env: TOXENV=manifest
+  - <<: *lint
+    env: TOXENV=pydocstyle
+  - <<: *lint
+    env: TOXENV=doc8
+{%- if cookiecutter.doc_generator == "sphinx" %}
+  - <<: *lint
+    env: TOXENV=sphinx
+{%- endif %}
+{%- if cookiecutter.test_suite != "none" %}
+{%- if cookiecutter.python_min_version == "2.7" %}
+  - <<: *test
+    python: "2.7"
+    env: TOXENV=py27
+{%- endif %}
+{%- if cookiecutter.python_min_version <= "3.4" %}
+  - <<: *test
+    python: "3.4"
+    env: TOXENV=py34
+{%- endif %}
+{%- if cookiecutter.python_min_version <= "3.5" %}
+  - <<: *test
+    python: "3.5"
+    env: TOXENV=py35
+{%- endif %}
+{%- if cookiecutter.python_min_version <= "3.6" %}
+  - <<: *test
+    python: "3.6"
+    env: TOXENV=py36
+{%- endif %}
+  - <<: *test
+    python: "3.7"
+    env: TOXENV=py37
+{%- endif %}
+...

@@ -1,0 +1,131 @@
+---
+stages:
+- lint
+{%- if cookiecutter.test_suite != "none" %}
+- test
+- coverage
+{%- endif %}
+
+image: python:3.7
+
+before_script:
+- pip install tox
+{%- if cookiecutter.linter == "flake8" %}
+
+flake8:
+  stage: lint
+  script: tox -e flake8
+{%- endif %}
+
+isort:
+  stage: lint
+  script: tox -e isort
+{%- if cookiecutter.type_checker == "mypy" %}
+
+mypy:
+  stage: lint
+  script: tox -e mypy
+{%- endif %}
+{%- if cookiecutter.code_formatter == "black" %}
+
+black:
+  stage: lint
+  script: tox -e black
+{%- endif %}
+
+manifest:
+  stage: lint
+  script: tox -e manifest
+
+pydocstyle:
+  stage: lint
+  script: tox -e pydocstyle
+
+doc8:
+  stage: lint
+  script: tox -e doc8
+{%- if cookiecutter.doc_generator == "sphinx" %}
+
+sphinx:
+  stage: lint
+  script: tox -e sphinx
+  artifacts:
+    paths:
+    - docs/_build
+    expire_in: 1 hour
+{%- endif %}
+{%- if cookiecutter.test_suite != "none" %}
+{%- if cookiecutter.python_min_version <= "2.7" %}
+
+python2.7:
+  stage: test
+  image: python:2.7
+  script: tox -e py27
+  artifacts:
+    paths:
+    - .coverage.*
+    expire_in: 1 hour
+{%- endif %}
+{%- if cookiecutter.python_min_version <= "3.4" %}
+
+python3.4:
+  stage: test
+  image: python:3.4
+  script: tox -e py34
+  artifacts:
+    paths:
+    - .coverage.*
+    expire_in: 1 hour
+{%- endif %}
+{%- if cookiecutter.python_min_version <= "3.5" %}
+
+python3.5:
+  stage: test
+  image: python:3.5
+  script: tox -e py35
+  artifacts:
+    paths:
+    - .coverage.*
+    expire_in: 1 hour
+{%- endif %}
+{%- if cookiecutter.python_min_version <= "3.6" %}
+
+python3.6:
+  stage: test
+  image: python:3.6
+  script: tox -e py36
+  artifacts:
+    paths:
+    - .coverage.*
+    expire_in: 1 hour
+{%- endif %}
+
+python3.7:
+  stage: test
+  image: python:3.7
+  script: tox -e py37
+  artifacts:
+    paths:
+    - .coverage.*
+    expire_in: 1 hour
+
+coverage:
+  stage: coverage
+  script: tox -e coverage
+  dependencies:
+{%- if cookiecutter.python_min_version == "2.7" %}
+  - python2.7
+{%- endif %}
+{%- if cookiecutter.python_min_version <= "3.4" %}
+  - python3.4
+{%- endif %}
+{%- if cookiecutter.python_min_version <= "3.5" %}
+  - python3.5
+{%- endif %}
+{%- if cookiecutter.python_min_version <= "3.6" %}
+  - python3.6
+{%- endif %}
+  - python3.7
+  coverage: '/^TOTAL.*\s+(\d+\%)$/'
+{%- endif %}
+...
