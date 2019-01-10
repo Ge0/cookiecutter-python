@@ -6,7 +6,8 @@ An opinionated Cookiecutter template for Python projects.
 Features
 --------
 
-* Package into a ``src/`` directory.
+* Provide a ``src/`` layout.
+* Package metadata into `setup.cfg`.
 * Command-line argument parsing with argparse_ or Click_.
 * Extensive linting with Flake8_, isort_ and Mypy_.
 * Code formatting with Black_.

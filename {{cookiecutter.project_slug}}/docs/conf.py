@@ -184,7 +184,7 @@ texinfo_documents = [
         '{{ cookiecutter.project_title }} Documentation',
         author,
         {{ cookiecutter.project_package }}.__title__,
-        {{ cookiecutter.project_package }}.__summary__,
+        {{ cookiecutter.project_package }}.__description__,
         'Miscellaneous',
     ),
 ]

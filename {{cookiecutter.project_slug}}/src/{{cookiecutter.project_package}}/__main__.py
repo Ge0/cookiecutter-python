@@ -7,8 +7,7 @@ import argparse
 import click
 {%- endif %}
 
-from . import hello
-from .__about__ import __version__
+from . import __version__, hello
 {%- if cookiecutter.cli_parser == "argparse" %}
 
 
