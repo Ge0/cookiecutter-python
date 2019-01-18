@@ -1,0 +1,12 @@
+[run]
+branch = True
+source = lorem_ipsum
+
+[paths]
+source =
+    src/lorem_ipsum
+    .tox/*/lib/python*/site-packages/lorem_ipsum
+
+[report]
+fail_under = 100
+show_missing = True

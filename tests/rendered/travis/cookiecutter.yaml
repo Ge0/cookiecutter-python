@@ -1,0 +1,4 @@
+default_context:
+    project_license: none
+    cli_parser: none
+    ci: travis
