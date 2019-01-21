@@ -1,8 +1,5 @@
-import json
 import shutil
-from difflib import unified_diff
 from filecmp import dircmp
-from os.path import basename
 from pathlib import Path
 
 import pytest
