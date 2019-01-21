@@ -28,7 +28,7 @@ def check_same_dirs(left, right):
             to_compare.append((left / subdir, right / subdir))
 
 
-@pytest.mark.freeze_time("2019-01-20T12:34:56+0100")
+@pytest.mark.freeze_time("2019-01-20T12:34:56", tz_offset=1)
 def test_rendered(case_path):
     expected_path = case_path / "expected"
     output_path = case_path / "output"
