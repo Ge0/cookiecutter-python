@@ -1,3 +1,4 @@
 cookiecutter
 pytest
 pytest-freezegun
+tox
