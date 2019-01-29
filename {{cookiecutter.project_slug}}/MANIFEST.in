@@ -4,7 +4,7 @@ include {%- if cookiecutter.linter == "flake8" %} .flake8 {%- endif %} .pydocsty
 include docs/conf.py docs/make.bat docs/Makefile
 recursive-include docs *.rst
 graft docs/_static
-prune docs/_build
+prune docs/_build docs/api
 {%- endif %}
 {%- if cookiecutter.test_suite != "none" %}
 recursive-include tests *.py
