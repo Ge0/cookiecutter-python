@@ -1,4 +1,5 @@
 import shutil
+import time
 from filecmp import dircmp
 from pathlib import Path
 
@@ -23,12 +24,16 @@ def check_same_dirs(left, right):
         )
         assert (
             not comp.funny_files
-        ), "could not compare files on {} and {}".format(left, right)
+        ), "could not compare files on {} and {}".format(
+            left, right
+        )
         for subdir in comp.subdirs:
             to_compare.append((left / subdir, right / subdir))
 
 
-@pytest.mark.freeze_time("2019-01-20T12:34:56", tz_offset=1)
+@pytest.mark.freeze_time(
+    "2019-01-20T12:34:56", tz_offset=time.timezone // 3600
+)
 def test_rendered(case_path):
     expected_path = case_path / "expected"
     output_path = case_path / "output"

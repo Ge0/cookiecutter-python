@@ -4,7 +4,6 @@ image: python:3.7
 tox:
   stage: test
   before_script:
-  - ln -sf /usr/share/zoneinfo/Etc/GMT+1 /etc/localtime
   - pip install tox
   script:
   - tox
