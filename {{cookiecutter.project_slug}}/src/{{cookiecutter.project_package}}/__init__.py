@@ -2,7 +2,7 @@
 {%- if cookiecutter.python_min_version == "2.7" %}
 
 from __future__ import print_function
-{%- endif %}
+{% endif %}
 
 __version__ = "{{ cookiecutter.project_version }}"
 
